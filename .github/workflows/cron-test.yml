@@ -1,0 +1,22 @@
+
+name: Test Cron y Manual
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"
+
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Mostrar mensaje
+        run: echo "Workflow ejecutado correctamente!"
+
+      - name: Mostrar fecha y hora
+        run: date -u
+
+      - name: Mostrar tipo de ejecución
+        run: echo "Evento que inició el workflow ${{ github.event_name }}"
